@@ -12,7 +12,7 @@ services:
     plan: free
     region: singapore
     buildCommand: cd backend && npm install --production=false && npm run build
-    releaseCommand: cd backend && npx prisma generate && npx prisma db push && npx tsx prisma/seed.ts
+    preDeployCommand: cd backend && npx prisma generate && npx prisma db push && npx tsx prisma/seed.ts
     startCommand: cd backend && npm run start
     envVars:
       - key: DATABASE_URL
